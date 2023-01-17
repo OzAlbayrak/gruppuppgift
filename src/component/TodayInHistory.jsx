@@ -16,6 +16,7 @@ const TodayInHistory = () => {
     1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21,
     22, 23, 24, 25, 26, 27, 28, 29, 30, 31,
   ];
+  const monthDaySize = [0,31,29,31,30,31,30,31,31,30,31,30,31];
   var address ="";
   var month = require('month');
 
@@ -57,23 +58,30 @@ const TodayInHistory = () => {
   return (
     <div>
       <h1>TodayInHistory</h1>
-      <h2>Choose a date</h2>
-      <select onChange={monthOnChangeHandler}>
-        {monthArray.map((x) => (
-          <option value={x}>{month(x)}</option>
-        ))}
-      </select>
+      <div className="date-selector">
+        <h2>Choose a date</h2>
+        <select onChange={monthOnChangeHandler}>
+          {monthArray.map((x) => (
+            <option value={x}>{month(x)}</option>
+          ))}
+        </select>
 
-      <select onChange={dayOnChangeHandler}>
-        {
-        dayArray.map((x) => (
-          <option value={x}>{x}</option>
-        ))}
-      </select>
+        <select onChange={dayOnChangeHandler}>
+          {
+          dayArray.map((x) => (
+            x <= monthDaySize[dateMonth] ? 
+            (<>
+              <option value={x}>{x}</option>
+            </>) : 
+            (<></>)
+            
+          ))}
+        </select>
 
-      <button className="get-new-button" onClick={getNewData}>
-        New Event
-      </button>
+        <button className="get-new-button" onClick={getNewData}>
+          New Event
+        </button>
+      </div>
 
       <Tabs>
         <TabList>
@@ -123,3 +131,5 @@ const TodayInHistory = () => {
 };
 
 export default TodayInHistory;
+
+
