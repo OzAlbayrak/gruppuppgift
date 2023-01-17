@@ -28,17 +28,3 @@ const useFetch = (url) => {
 }
 
 export default useFetch;
-
-
-
-
-
-
-/*
-
-fetch("https://history.muffinlabs.com/date", requestOptions)
-  .then(response => response.text())
-  .then(result => console.log(result))
-  .catch(error => console.log('error', error));
-
-*/
