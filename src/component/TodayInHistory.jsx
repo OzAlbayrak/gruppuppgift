@@ -58,23 +58,30 @@ const TodayInHistory = () => {
   return (
     <div>
       <h1>TodayInHistory</h1>
-      <h2>Choose a date</h2>
-      <select onChange={monthOnChangeHandler}>
-        {monthArray.map((x) => (
-          <option value={x}>{month(x)}</option>
-        ))}
-      </select>
+      <div className="date-selector">
+        <h2>Choose a date</h2>
+        <select onChange={monthOnChangeHandler}>
+          {monthArray.map((x) => (
+            <option value={x}>{month(x)}</option>
+          ))}
+        </select>
 
-      <select onChange={dayOnChangeHandler}>
-        {
-        dayArray.map((x) => (
-          <option value={x}>{x}</option>
-        ))}
-      </select>
+        <select onChange={dayOnChangeHandler}>
+          {
+          dayArray.map((x) => (
+            x <= monthDaySize[dateMonth] ? 
+            (<>
+              <option value={x}>{x}</option>
+            </>) : 
+            (<></>)
+            
+          ))}
+        </select>
 
-      <button className="get-new-button" onClick={getNewData}>
-        New Event
-      </button>
+        <button className="get-new-button" onClick={getNewData}>
+          New Event
+        </button>
+      </div>
 
       <Tabs>
         <TabList>
@@ -124,3 +131,5 @@ const TodayInHistory = () => {
 };
 
 export default TodayInHistory;
+
+
