@@ -77,13 +77,12 @@ const TodayInHistory = () => {
             
           ))}
         </select>
-
         <button className="get-new-button" onClick={getNewData}>
           New Event
         </button>
       </div>
-
-      <Tabs>
+      <br></br>
+      <Tabs className={"tabs"}>
         <TabList>
           <Tab>Event</Tab>
           <Tab>Birth</Tab>
