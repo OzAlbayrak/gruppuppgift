@@ -65,9 +65,7 @@ const TodayInHistory = () => {
         <TabPanel>
           <h2>data.event.year data.event.text</h2>
           <div>{console.log(data)}</div>
-          <div>{data.data.Events[0].text}</div>
-          <div>{data.date}</div>
-          <div>{data.url}</div>
+          {
 
         </TabPanel>
         <TabPanel>
