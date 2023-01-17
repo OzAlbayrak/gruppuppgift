@@ -66,6 +66,14 @@ const TodayInHistory = () => {
           ))}
         </select>
 
+        <div className="date-selector">
+        <h2>Choose a date</h2>
+        <select onChange={monthOnChangeHandler}>
+          {monthArray.map((x) => (
+            <option value={x}>{month(x)}</option>
+          ))}
+        </select>
+
         <select onChange={dayOnChangeHandler}>
           {
           dayArray.map((x) => (
@@ -77,7 +85,7 @@ const TodayInHistory = () => {
             
           ))}
         </select>
-
+        </div>
         <button className="get-new-button" onClick={getNewData}>
           New Event
         </button>
