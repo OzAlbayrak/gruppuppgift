@@ -63,9 +63,15 @@ const TodayInHistory = () => {
         </TabList>
 
         <TabPanel>
-          <h2>data.event.year data.event.text</h2>
           <div>{console.log(data)}</div>
           {
+            isPending ? (<>
+              <div>Loading...</div>
+            </>) : (<>
+              <div>År: {data.data.Events[0].year}</div>
+              <div>Event of the day: {data.data.Events[0].text}</div>
+            </>)
+          }
 
         </TabPanel>
         <TabPanel>
