@@ -58,7 +58,7 @@ const TodayInHistory = () => {
 
   return (
     <div>
-      <h1>TodayInHistory</h1>
+      <h1>Today In History</h1>
       <div className="date-selector">
         <h2>Choose a date</h2>
         <select onChange={monthOnChangeHandler}>
