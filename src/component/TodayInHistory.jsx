@@ -11,16 +11,15 @@ const TodayInHistory = () => {
   const [randomEvent, setRandomEvent] = useState(null);
   const [randomBirth, setRandomBirth] = useState(null);
   const [randomDeath, setRandomDeath] = useState(null);
+  const [startApp, setStartApp] = useState(true);
   const monthArray = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12];
   const dayArray = [
     1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21,
     22, 23, 24, 25, 26, 27, 28, 29, 30, 31,
   ];
-
   const monthDaySize = [0, 31, 29, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31];
-
   var address = "";
-  var month = require("month");
+  var month = require("month"); 
 
   useEffect(() => {}, []);
 
@@ -33,6 +32,7 @@ const TodayInHistory = () => {
   };
 
   const getNewData = (e) => {
+    setStartApp(false);
     setIsPending(true);
     address = "http://history.muffinlabs.com/date/" + dateMonth + "/" + dateDay;
     fetch(address)
@@ -94,7 +94,7 @@ const TodayInHistory = () => {
           <div>{console.log(data)}</div>
           {isPending ? (
             <>
-              <div>Loading...</div>
+              {startApp ? (<><div>Select a date...</div></>):(<><div>Loading...</div></>)}
             </>
           ) : (
             <>
@@ -108,7 +108,7 @@ const TodayInHistory = () => {
           <div>{console.log(data)}</div>
           {isPending ? (
             <>
-              <div>Loading...</div>
+              {startApp ? (<><div>Select a date...</div></>):(<><div>Loading...</div></>)}
             </>
           ) : (
             <>
@@ -122,7 +122,7 @@ const TodayInHistory = () => {
           <div>{console.log(data)}</div>
           {isPending ? (
             <>
-              <div>Loading...</div>
+              {startApp ? (<><div>Select a date...</div></>):(<><div>Loading...</div></>)}
             </>
           ) : (
             <>
